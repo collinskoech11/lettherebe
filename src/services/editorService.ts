@@ -7,6 +7,8 @@ export class EditorService {
       editor.edit((editBuilder) => {
         editBuilder.insert(editor.selection.active, text);
       });
+    } else {
+      vscode.window.showWarningMessage("No active editor found to insert text.");
     }
   }
 }

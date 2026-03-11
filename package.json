@@ -21,6 +21,12 @@
       }
     ]
   },
+  "keybindings": [
+    {
+      "command": "voiceCoder.startRecording",
+      "key": "ctrl+shift+v"
+    }
+  ],
   "scripts": {
     "vscode:prepublish": "yarn run package",
     "compile": "yarn run check-types && yarn run lint && node esbuild.js",
