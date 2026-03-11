@@ -1,4 +1,12 @@
-// Path: src/services/editorService.ts
+import * as vscode from "vscode";
+
 export class EditorService {
-    // TODO: Implement editor-related functionalities
+  public insertText(text: string) {
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+      editor.edit((editBuilder) => {
+        editBuilder.insert(editor.selection.active, text);
+      });
+    }
+  }
 }
