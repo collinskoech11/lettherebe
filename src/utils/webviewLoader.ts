@@ -16,15 +16,15 @@ export class WebviewLoader {
 
     // Replace placeholders for CSS and JS paths
     htmlContent = htmlContent.replace(
-      /\${{webview.cspSource}}/g,
-      `vscode-resource://`${webviewPath.replace(/\\/g, '/')}`
+      /\$\{webview.cspSource\}/g,
+      vscode.Uri.file(webviewPath).with({ scheme: "vscode-resource" }).toString()
     );
     htmlContent = htmlContent.replace(
-      /\${{webview.css}}/g,
+      /\$\{webview.css\}/g,
       this.getWebviewUri(webviewPath, `${webviewName}.css`)
     );
     htmlContent = htmlContent.replace(
-      /\${{webview.js}}/g,
+      /\$\{webview.js\}/g,
       this.getWebviewUri(webviewPath, `${webviewName}.js`)
     );
 
