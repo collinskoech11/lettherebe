@@ -63,7 +63,12 @@ if ("webkitSpeechRecognition" in window) {
   };
 
   startButton.onclick = () => {
-    recognition.start();
+    console.log("Starting speech recognition...");
+    try{
+      recognition.start();
+    } catch (error) {
+      console.error("Error starting speech recognition:", error);
+    }
   };
 
   stopButton.onclick = () => {
