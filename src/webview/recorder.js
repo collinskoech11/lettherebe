@@ -1,3 +1,7 @@
+navigator.mediaDevices.getUserMedia({ audio: true })
+  .then(() => console.log("Mic permission granted"))
+  .catch(err => console.error("Mic permission denied:", err));
+
 const vscode = acquireVsCodeApi();
 
 const startButton = document.getElementById("startButton");
@@ -42,13 +46,19 @@ if ("webkitSpeechRecognition" in window) {
     // statusParagraph.textContent = `Recording... ${interimTranscript}`;
   };
 
-  recognition.onerror = (event) => {
-    console.error("Speech recognition error:", event.error);
+recognition.onerror = (event) => {
+  console.error("Speech recognition error:", event.error);
+
+  if (event.error === "not-allowed") {
+    statusParagraph.textContent = "Microphone permission denied.";
+  } else {
     statusParagraph.textContent = `Error: ${event.error}`;
-    isRecording = false;
-    startButton.disabled = false;
-    stopButton.disabled = true;
-  };
+  }
+
+  isRecording = false;
+  startButton.disabled = false;
+  stopButton.disabled = true;
+};
 
   recognition.onend = () => {
     if (isRecording) {
@@ -62,7 +72,9 @@ if ("webkitSpeechRecognition" in window) {
     }
   };
 
-  startButton.onclick = () => {
+  startButton.onclick = async () => {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    console.log("Microphone access granted", stream);
     console.log("Starting speech recognition...");
     try{
       recognition.start();
