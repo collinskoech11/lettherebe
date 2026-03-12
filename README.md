@@ -1,71 +1,87 @@
-# lettherebe README
+# Let There Be
 
-This is the README for your extension "lettherebe". After writing up a brief description, we recommend including the following sections.
+**Let There Be** is a Visual Studio Code extension that aims to eliminate the keyboard in the coding experience. It allows you to write and edit code using voice commands, and to directly prompt and control CLI agents like Gemini and Copilot.
+
+## Roadmap
+
+### Phase 1: Core Functionality (In Progress)
+
+*   [x] Basic webview for voice recording.
+*   [ ] Integration with a speech-to-text API.
+*   [ ] Basic text insertion into the editor.
+
+### Phase 2: Advanced Voice Commands
+
+*   [ ] Commands for code navigation (e.g., "go to line 10", "find function foo").
+*   [ ] Commands for code editing (e.g., "delete line", "copy this block").
+*   [ ] Context-aware commands (e.g., "rename this variable to 'newName'").
+
+### Phase 3: CLI Agent Integration
+
+*   [ ] Integrate with the Gemini CLI.
+*   [ ] Integrate with the Copilot CLI.
+*   [ ] Allow users to seamlessly switch between coding and prompting the agents.
+
+### Phase 4: Customization and Extensibility
+
+*   [ ] Allow users to define their own voice commands.
+*   [ ] Create an API for other extensions to integrate with "Let There Be".
+
+## Getting Started & Development
+
+### Prerequisites
+
+*   [Node.js](https://nodejs.org/)
+*   [Yarn](https://yarnpkg.com/)
+*   [Visual Studio Code](https://code.visualstudio.com/)
+
+### Installation & Running
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/lettherebe.git
+    cd lettherebe
+    ```
+2.  **Install dependencies:**
+    ```bash
+    yarn install
+    ```
+3.  **Run the extension in a new VS Code window:**
+    *   Press `F5` to open a new VS Code window with the extension loaded.
+
+### Running the tests
+
+To run the automated tests for this extension, run the following command:
+
+```bash
+yarn test
+```
+
+### Other Commands
+
+*   **Compile the extension:**
+    ```bash
+    yarn compile
+    ```
+*   **Watch for changes and recompile:**
+    ```bash
+    yarn watch
+    ```
+*   **Package the extension for release:**
+    ```bash
+    yarn package
+    ```
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+*   **Voice-to-Code**: Write and edit code in real-time using your voice.
+*   **CLI Agent Control**: Directly prompt and control CLI agents like Gemini and Copilot with voice commands.
+*   **Record and Playback**: Record your voice-driven coding sessions and play them back for review and sharing.
 
-For example if there is an image subfolder under your extension project workspace:
+## How it Works
 
-\!\[feature X\]\(images/feature-x.png\)
+The `lettherebe.startRecording` command opens a webview that captures your voice commands. These commands are then transcribed and used to either edit the code in the active editor or to interact with a CLI agent.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## License
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
